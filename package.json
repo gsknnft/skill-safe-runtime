@@ -1,0 +1,48 @@
+{
+  "name": "@gsknnft/skill-safe-runtime",
+  "version": "0.1.0",
+  "description": "Runtime monitoring contracts for agent skill execution.",
+  "keywords": [
+    "agent-skills",
+    "runtime-security",
+    "tool-allowlist",
+    "taint-tracking",
+    "agent-security"
+  ],
+  "author": "gsknnft",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "pnpm clean && tsc -p tsconfig.build.json",
+    "tsc:noemit": "tsc -b --noEmit",
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\""
+  },
+  "dependencies": {
+    "@gsknnft/skill-safe": "link:../skill-safe"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3"
+  }
+}
